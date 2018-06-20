@@ -1,5 +1,6 @@
 BlaBlaCar::Application.routes.draw do
-  get "users/new"
+  resources :users
+
 
   root to: 'bla_bla_car#home'
 
