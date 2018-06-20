@@ -1,4 +1,13 @@
 BlaBlaCar::Application.routes.draw do
+  get "users/new"
+
+  root to: 'bla_bla_car#home'
+
+  match '/signup',  to: 'users#new'
+
+  match '/help',    to: 'bla_bla_car#help'
+  match '/about',   to: 'bla_bla_car#about'
+  match '/contact', to: 'bla_bla_car#contact'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
