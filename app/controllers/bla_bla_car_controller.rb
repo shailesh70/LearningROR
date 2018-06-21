@@ -11,4 +11,10 @@ class BlaBlaCarController < ApplicationController
   def contact
   end
 
+  def offer_ride
+  end
+
+  def find_ride
+  end
+
 end

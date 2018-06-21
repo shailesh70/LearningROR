@@ -6,9 +6,14 @@
   	  </div>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Offer a Ride",'#', class: "btn btn-large btn-primary"%></li>
-          <li><%= link_to "Sign Up", new_user_path %></li>
-          <li><%= link_to "Log in", '#' %></li>
+          <li><%= link_to "Offer a Ride",offer_ride_path, class: "btn btn-large btn-primary"%></li>
+          <% if signed_in? %>
+            <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+            <li><%= link_to "Profile", current_user %></li>
+          <% else %>
+            <li><%= link_to "Sign Up", new_user_path %></li>
+            <li><%= link_to "Log in", signin_path %></li>
+          <% end %>
         </ul>
       </nav>
     </div>

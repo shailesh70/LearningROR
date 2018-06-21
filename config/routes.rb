@@ -1,14 +1,20 @@
 BlaBlaCar::Application.routes.draw do
   resources :users
-
+  resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'bla_bla_car#home'
+  
 
   match '/signup',  to: 'users#new'
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+
 
   match '/help',    to: 'bla_bla_car#help'
   match '/about',   to: 'bla_bla_car#about'
   match '/contact', to: 'bla_bla_car#contact'
+  match '/offer_ride', to: 'bla_bla_car#offer_ride'
+  match '/find_ride', to: 'bla_bla_car#find_ride'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
