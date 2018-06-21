@@ -8,8 +8,9 @@
         <ul class="nav pull-right">
           <li><%= link_to "Offer a Ride",offer_ride_path, class: "btn btn-large btn-primary"%></li>
           <% if signed_in? %>
-            <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
             <li><%= link_to "Profile", current_user %></li>
+            <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+            <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
           <% else %>
             <li><%= link_to "Sign Up", new_user_path %></li>
             <li><%= link_to "Log in", signin_path %></li>

@@ -14,6 +14,7 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'test-unit'
 gem 'rake', '< 11.0'
 
+gem "activerecord-jdbcsqlite3-adapter", platforms: :jruby
 
 # Gems used only for assets and not required
 # in production environments by default.

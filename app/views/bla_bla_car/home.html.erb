@@ -8,19 +8,16 @@
   </h2>
 
   <br><br><br>
-  
 
-  <%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= text_field_tag(:q) %>
-  <%= text_field_tag(:q) %>
+  <%= form_for('#') do |f| %>
+      <%= label_tag(:'Search for') %>
+      <%= f.text_field :source ,placeholder: "Source"%>
+      <%= f.text_field :destination, placeholder: "Destination" %>
+      <%= f.password_field :journey_date , placeholder: "Journey date"%>
+  <% end %>
 
-  <br><br><br>
-<% end %>
+  <br><br>
   <%= link_to "Find Ride", find_ride_path, class: "btn btn-large btn-primary" %>
 </div>
 
 <%= link_to image_tag("blablacar.png", alt: "BlaBlaCar"), 'https://www.blablacar.in/' %>
-
-

@@ -6,6 +6,14 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+      <h4>
+      	<ul class="nav pull-right">
+	      	<li> Gender     :<%=@user.gender %></li>
+	      	<li> Birth Year :<%= @user.year_of_birth  %></li>
+	      	<li> Mob Number :<%=@user.phone_number %></li>
+	      	<li> About      :<%=@user.bio %></li>
+	    </ul>
+      </h4>
     </section>
   </aside>
 </div>
