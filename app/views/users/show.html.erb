@@ -1,19 +1,28 @@
 <% provide(:title, @user.name) %>
+<h1> Profile </h1>
 <div class="row">
-  <aside class="span4">
+  <aside class="col-sm-4">
     <section>
       <h1>
         <%= gravatar_for @user %>
-        <%= @user.name %>
+        <%= @user.name %><br>
       </h1>
+      Rating 3.2
+    </section>
+    <section class="col-sm-24">
       <h4>
-      	<ul class="nav pull-right">
-	      	<li> Gender     :<%=@user.gender %></li>
-	      	<li> Birth Year :<%= @user.year_of_birth  %></li>
-	      	<li> Mob Number :<%=@user.phone_number %></li>
-	      	<li> About      :<%=@user.bio %></li>
-	    </ul>
+        <ul class="list-group">
+          <li class="list-group-item"> Gender     : <%= @user.gender %></li>
+          <li class="list-group-item"> Birth Year : <%= @user.year_of_birth  %></li>
+          <li class="list-group-item"> Mob Number : <%= @user.phone_number %></li>
+          <li class="list-group-item"> About      : <%= @user.bio %></li>
+        </ul>
       </h4>
+    </section>
+  </aside>
+  <aside class="col-sm-16 ">
+    <section>
+      <%= link_to "View Offer Ride List", offer_ride_path, class: "btn btn-large btn-primary" %>  
     </section>
   </aside>
 </div>

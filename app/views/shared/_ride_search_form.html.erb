@@ -1,0 +1,20 @@
+<div class="center search_form">
+	<%= form_tag(find_ride_path, method: "get") do |f| %>
+
+	  <%# render 'shared/error_messages' , object: f.object%>
+	  <%= label_tag(:'Search for') %><br>
+	  <%= text_field_tag :source, params[:source], placeholder: "Source" %>
+	  <%= text_field_tag :destination, params[:destination], placeholder: "Destination" %>
+	  <%# text_field_tag :journey_date, params[:journey_date], placeholder: "Journey Date" %>
+	  <%# select_date(date = Date.current)%>
+	  <% if !@currdate%>
+	  	<% @currdate = DateTime.now %>
+	  	<% @currdate = @currdate.strftime("%Y-%m-%d ")%>
+	  <% end%>
+	  <input type="date"  name="journey_date" value= <%=@currdate%>>
+	  <%# journey_date= journey_date.strftime("%d/%m/%Y")%>
+	  <%params[:journey_date] %>
+
+	  <%= submit_tag "Search" ,  class: "btn-right btn btn-large btn-primary"%>
+	<% end %>
+</div>

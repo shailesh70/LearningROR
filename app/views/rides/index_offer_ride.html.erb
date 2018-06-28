@@ -1,0 +1,36 @@
+<h1>List Of Ride Offered</h1>
+
+
+<div class = 'ride_list' >
+<% if @listOfRide.any? %>
+	<table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th>Serial No.</th>
+          <th>Source</th>
+          <th>Destination</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Price</th>
+          <th>Seats</th>
+        </tr>
+      </thead>
+        <% srno =1 %>
+        <% @listOfRide.each do |r| %>
+        <tr>
+          <td><%= srno %></td>
+          <td><%=r.source %></td>
+          <td><%=r.destination %></td>
+          <td><%=r.date_of_journey %></td>
+          <td><%=r.time %></td>
+          <td><%=r.price %></td>
+          <td><%=r.seats %></td>
+        </tr>
+        <%srno+=1%>
+      <% end %>
+    </table>
+<% else %>
+	<h2>No Ride Offer By you</h2>
+<% end %>
+
+</div>

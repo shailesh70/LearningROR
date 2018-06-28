@@ -1,6 +1,6 @@
 <div class="center hero-unit" style="background-position: center top; background-image: url(https://d1ovtcjitiy70m.cloudfront.net/vi-1/images/rebranding/homeblock_main_desktop.jpg);">
 	<br><br><br>
-  <h1>Welcome to the BlaBlaCar</h1>
+  <h1 style="color:white">Welcome to the BlaBlaCar</h1>
 	<br><br><br>
   <h2>
     This is the home page for the
@@ -9,15 +9,8 @@
 
   <br><br><br>
 
-  <%= form_for('#') do |f| %>
-      <%= label_tag(:'Search for') %>
-      <%= f.text_field :source ,placeholder: "Source"%>
-      <%= f.text_field :destination, placeholder: "Destination" %>
-      <%= f.password_field :journey_date , placeholder: "Journey date"%>
-  <% end %>
-
-  <br><br>
-  <%= link_to "Find Ride", find_ride_path, class: "btn btn-large btn-primary" %>
+  <%= render 'shared/ride_search_form' %>
+  <br><br><br>
 </div>
 
 <%= link_to image_tag("blablacar.png", alt: "BlaBlaCar"), 'https://www.blablacar.in/' %>

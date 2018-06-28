@@ -11,7 +11,39 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180621130858) do
+ActiveRecord::Schema.define(:version => 20180622110754) do
+
+  create_table "ride_lists", :force => true do |t|
+    t.string   "source"
+    t.string   "destination"
+    t.string   "stoppage_city"
+    t.string   "date_of_journey"
+    t.string   "time"
+    t.decimal  "price"
+    t.integer  "seats"
+    t.string   "about_ride"
+    t.integer  "user_id_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "ride_lists", ["user_id_id"], :name => "index_ride_lists_on_user_id_id"
+
+  create_table "rides", :force => true do |t|
+    t.string   "source"
+    t.string   "destination"
+    t.string   "stoppage_city"
+    t.string   "date_of_journey"
+    t.string   "time"
+    t.decimal  "price"
+    t.integer  "seats"
+    t.string   "about_ride"
+    t.integer  "user_id_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "rides", ["user_id_id"], :name => "index_rides_on_user_id_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

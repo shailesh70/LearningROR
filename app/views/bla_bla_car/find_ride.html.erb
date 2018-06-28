@@ -1,12 +1,15 @@
 <% provide(:title, 'Find Rides') %>
-<h1>List of Available Rides </h1>
-<nav>
-	<ul class="nav pull-top">
-	  <li>Chennai To Madhurai.      600</li>
-	  <li>Chennai To Banglore       400</li>
-	  <li>Chennai to Trichy</li>
-	  <li>Trichy to Tambram</li>
-	  <li>Banglore To Trichy</li>
-	  
-	</ul>
-</nav>
+<% if signed_in? %>
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/ride_form' %>
+      </section>
+    </aside>
+  </div>
+<% else %>
+	<h1>Please signin for List of Rides</h1>
+<% end %> 

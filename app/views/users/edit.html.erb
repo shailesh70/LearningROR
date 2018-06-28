@@ -4,7 +4,7 @@
 <div class="row signup_form">
   <div class="span6 offset3">
     <%= form_for(@user) do |f| %>
-      <%= render 'users/shared/error_messages' %>
+      <%= render 'shared/error_messages' , object: f.object%>
 
       <%= f.label :name %>
       <%= f.text_field :name %>
@@ -13,13 +13,14 @@
       <%= f.text_field :email %>
 
       <%= f.label :gender %>
-      <%= f.text_field :gender %>
+      <%= f.select :gender, [['Male','male'],['Female','female']]%>
 
       <%= f.label :year_of_birth %>
       <%= f.text_field :year_of_birth %>
+      
 
-      <%= f.label :phone_number %>
-      <%= f.text_field :phone_number %>
+      <%= f.label :phone_number  %>
+      <%= f.text_field :phone_number , :maxlength => 10%>
 
       <%= f.label :bio %>
       <%= f.text_field :bio , placeholder: "About your self" %>

@@ -1,0 +1,39 @@
+<% provide(:title, 'Offer Rides') %>
+<h1>Offer A Ride</h1>
+
+<div class="row signup_form">
+  <div class="col-sm-12">
+    <%= form_for(@ride) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :source %>
+      <%= f.text_field :source %>
+
+      <%= f.label :destination %>
+      <%= f.text_field :destination %>
+
+      <%= f.label :stoppage_city %>
+      <%= f.text_field :stoppage_city %>
+
+      <%= f.label :date_of_journey %>
+      <%# f.text_field :date_of_journey %>
+      <% @currdate = DateTime.now %>
+      <% @currdate = @currdate.strftime("%Y-%m-%d ")%>
+      <input type="date"  name="journey_date" value= <%=@currdate%>>
+      <%#@ride.date_of_journey=:journey_date %>
+      <%params[:journey_date] %>
+      <%= f.label :time %>
+      <%= f.text_field :time %>
+
+      <%= f.label :price %>
+      <%= f.text_field :price %>
+
+      <%= f.label :seats %>
+      <%= f.text_field :seats %>
+
+      <%= f.label :about_ride, placeholder: "About your Ride"  %>
+      <%= f.text_field :about_ride %>
+      <%= f.submit "Post Ride", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

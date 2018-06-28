@@ -1,5 +1,6 @@
 class BlaBlaCarController < ApplicationController
   def home
+    # @ride = current_user.ride.build if signed_in?
   end
 
   def help

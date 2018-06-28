@@ -1,0 +1,39 @@
+<% provide(:title, 'Find Rides') %>
+<div class="field">
+<h1>Find your Ride</h1>
+  <%= render 'shared/ride_search_form' %>
+</div>
+<div>
+  <% if @matchRide.any? %>
+    <table class=" table">
+      <thead class="thead-light">'
+        <tr>
+          <th>Serial No.</th>
+          <th>Source</th>
+          <th>Destination</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Price</th>
+          <th>Seats</th>
+          <th></th>
+        </tr>
+      </thead>
+        <% srno =1 %>
+        <% @matchRide.each do |r| %>
+          <tr>
+            <td><%= srno %></td>
+            <td><%=r.source %></td>
+            <td><%=r.destination %></td>
+            <td><%=r.date_of_journey %></td>
+            <td><%=r.time %></td>
+            <td><%=r.price %></td>
+            <td><%=r.seats %></td>
+            <% ride_id= r.id%>
+            <td><%= link_to "View Details", ride_path(ride_id) %></td>
+          </tr>
+        <%srno+=1%>
+      <% end %>
+    </table>
+  <% end %>
+</div>
+

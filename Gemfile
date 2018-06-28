@@ -9,7 +9,8 @@ gem 'sqlite3'
 gem 'simple_form'
 gem 'rails-footnotes' , '>=3.7.9' , :group => :development
 gem 'rspec-rails', '2.11.0'
-gem 'bootstrap-sass', '2.1'
+#gem 'bootstrap-sass', '3.1.1'
+gem 'bootstrap-sass', '3.1.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'test-unit'
 gem 'rake', '< 11.0'
@@ -33,6 +34,7 @@ group :development do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails', '~> 4.2.1'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
