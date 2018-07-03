@@ -11,23 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180622110754) do
+ActiveRecord::Schema.define(:version => 20180628155421) do
 
-  create_table "ride_lists", :force => true do |t|
-    t.string   "source"
-    t.string   "destination"
-    t.string   "stoppage_city"
-    t.string   "date_of_journey"
-    t.string   "time"
-    t.decimal  "price"
+  create_table "ride_booking_details", :force => true do |t|
+    t.string   "payment_mode"
+    t.integer  "amount"
     t.integer  "seats"
-    t.string   "about_ride"
-    t.integer  "user_id_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.string   "transaction_id"
+    t.string   "msg"
+    t.integer  "booking_user_id_id"
+    t.integer  "ride_id_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
-  add_index "ride_lists", ["user_id_id"], :name => "index_ride_lists_on_user_id_id"
+  add_index "ride_booking_details", ["booking_user_id_id"], :name => "index_ride_booking_details_on_booking_user_id_id"
+  add_index "ride_booking_details", ["ride_id_id"], :name => "index_ride_booking_details_on_ride_id_id"
 
   create_table "rides", :force => true do |t|
     t.string   "source"

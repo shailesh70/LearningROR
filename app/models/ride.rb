@@ -1,6 +1,7 @@
 class Ride < ActiveRecord::Base
   belongs_to :user_id
   before_save :downcase_fields
+  has_many :ride_booking_detail
   attr_accessible :about_ride, :date_of_journey, :destination, :price, :seats, :source, :stoppage_city, :time
   
   validates :source,presence: true

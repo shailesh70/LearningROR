@@ -1,0 +1,42 @@
+<% provide(:title, 'Book Ride') %>
+<h1>Ride Booking</h1>
+
+
+<div class="row signup_form">
+  <div class="span6 offset3">
+    <%= form_for(@ridebookdetail) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+        
+      <%= f.label :No_of_seats  %>
+      <%= f.select :seats ,options_for_select(@seatcount,selected=1),{:onchange => "getSeatsValue()"},{ :id => "seat_no"} %>
+
+      <%= f.label :amount %> 
+      <%= f.text_field :amount, value:@ridedetail.price%>
+
+      <%= f.label :payment_Mode %>
+      <%= f.select :payment_mode,[['Debit card' ,'debit'],['Cradit Card', 'cradit'],['Net banking','netbanking'],['Paytm','paytm']] %>
+
+      <%= f.label :transaction_no %>
+      <%= f.text_field :transaction_id %>
+
+      <%= f.label :Any_Message %>
+      <%= f.text_field :msg %>
+
+      <%= f.text_field :ride_id_id, required: true, class: 'form-control', value:@ride_id %>
+
+
+      <%= f.submit "Confirm Booking", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+
+<script>
+// debugger
+  function getSeatsValue() {
+      var selected_val = document.getElementById('seat_no').value;
+      var amount = <%= @ridedetail.price %>
+      document.getElementById('ride_booking_detail_amount').value = amount * selected_val;
+  }
+  document.getElementById('seat_no').onchange = getSeatsValue;
+</script>

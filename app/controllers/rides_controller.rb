@@ -1,14 +1,16 @@
 class RidesController < ApplicationController
-  before_filter :signed_in_user, only: [:create, :destroy]
+  before_filter :signed_in_user, only: [:create, :destroy, :new]
   before_filter :correct_user,   only: :destroy
 
   def index_offer_ride
+
     @listOfRide=Ride.all(:conditions => {:user_id_id  => current_user.id})
+
   end
 
   def index_find_ride
-    # p '======================================='
-    # p @currdate
+    p '======================================='
+    #p @currdate
     if params[:journey_date] 
       @currdate=params[:journey_date]
     end
@@ -18,7 +20,11 @@ class RidesController < ApplicationController
     # p '======================================'
     params[:source]=params[:source].to_s.downcase
     params[:destination]=params[:destination].to_s.downcase
-    @matchRide = Ride.where(source: params[:source], destination: params[:destination], date_of_journey: params[:journey_date] )
+    @matchRide = Ride.where(source: params[:source], destination: params[:destination], date_of_journey: params[:journey_date] ).where('seats > 0').order('seats desc')
+    
+
+    p @matchRide
+    p ' *****************************************'
   end
 
   def new
@@ -45,13 +51,10 @@ class RidesController < ApplicationController
   def show
     @ridedetail = Ride.find(params[:id])
   	@userdetail = User.find(@ridedetail.user_id_id)
-
+    # redirect_to :controller => 'ride_booking_details', :action => 'create'
+    # redirect_to ride_booking_details(ride_id: params[:id])
     
     # p '======================================='
-    # p params[:id]
-    # p @userdetail
-    # p '======================================'
-    
     # p @ridedetail
     # p '======================================'
   end

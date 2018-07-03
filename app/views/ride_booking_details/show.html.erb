@@ -1,0 +1,39 @@
+<% provide(:title, 'Booking History') %>
+<h1>Booking Histroy </h1>
+<div class="container" role="main">
+  <div class= "row">
+    <div class="col-sm-10 col-md-12">
+      <section>
+        <% if @bookingHistory.any? %>
+          <table class=" table">
+            <thead class="thead-light">'
+              <tr>
+                <th>Sr No.</th>
+                <th>Amount</th>
+                <th>Payment Mode</th>
+                <th>Seats</th>
+                <th>Ride Id</th>
+                <th></th>
+              </tr>
+            </thead>
+            <% srno =1 %>
+            <% @bookingHistory.each do |r| %>
+              <tr>
+                <td><%= srno %></td>
+                <td><%=r.amount %></td>
+                <td><%=r.payment_mode %></td>
+                <td><%=r.seats %></td>
+                <td><%=r.ride_id_id %></td>
+                <td><%# link_to "Book Ride", book_ride_path(@ridedetail.id) %></td>
+                </tr> 
+              <%srno+=1%>
+            <% end %>
+        </table>
+        <% else %>
+          <h2>Not booked Yet</h2>
+        <% end %>
+      </section>
+    </div>
+
+  </div>
+</div>

@@ -1,9 +1,10 @@
 BlaBlaCar::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  
+  resources :ride_booking_details ,only:[ :create, :show, :destroy]
   resources :rides , only:[:new, :create, :destroy, :show]
 
+  get '/ride_booking_details/new/:ride_id', to: 'ride_booking_details#new', as: :book_ride
   root to: 'bla_bla_car#home'
   get '/offer_ride', to: 'rides#index_offer_ride'
   get '/find_ride', to: 'rides#index_find_ride'
@@ -11,10 +12,6 @@ BlaBlaCar::Application.routes.draw do
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
-
-  # root to: => 
-
-  # match '/show',  to: 'rides#show'
 
   match '/help',    to: 'bla_bla_car#help'
   match '/about',   to: 'bla_bla_car#about'

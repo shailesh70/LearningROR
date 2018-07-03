@@ -47,7 +47,8 @@
               <td><%=@ridedetail.time %></td>
               <td><%=@ridedetail.price %></td>
               <td><%=@ridedetail.seats %></td>
-              <td><%= link_to "Book Ride", '#' %></td>             </tr>
+              <td><%= link_to "Book Ride", book_ride_path(@ridedetail.id) %></td>
+              </tr>
           <%srno+=1%>
         </table>
       </section>

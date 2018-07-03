@@ -29,11 +29,13 @@
             <td><%=r.price %></td>
             <td><%=r.seats %></td>
             <% ride_id= r.id%>
-            <td><%= link_to "View Details", ride_path(ride_id) %></td>
+            <td><%= link_to_if r.seats>0,"View Details", ride_path(ride_id) %></td>
           </tr>
         <%srno+=1%>
       <% end %>
     </table>
+    <% else %>
+      <h2>No Maching Ride Found</h2>
   <% end %>
 </div>
 

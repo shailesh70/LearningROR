@@ -156,6 +156,8 @@ input {
   padding: 10px;
   margin-bottom: 15px;
   align: center;
+  vertical-align:middle;
+  align: center;
 }
 
 .search_form input,.search_form textarea, .search_form select, .sear_form date{
@@ -205,4 +207,7 @@ aside {
 
 .mr-1{
   padding-right: 1rem;
+}
+.signin_form_div{
+    margin-left: 20%;
 }
