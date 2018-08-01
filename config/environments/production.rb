@@ -19,6 +19,9 @@ BlaBlaCar::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
+  
+  
+  config.perform_caching = true
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
@@ -64,4 +67,7 @@ BlaBlaCar::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  config.perform_caching = true
+  config.cache_store = :dalli_store, 'localhost:11211'
+  }
 end

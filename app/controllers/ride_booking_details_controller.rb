@@ -21,10 +21,10 @@ class RideBookingDetailsController < ApplicationController
     @ridebookdetail.booking_user_id_id=current_user.id
     @seatbook=@ridebookdetail.seats.to_i
   	if @ridebookdetail.save
-        Ride.where(:id => @ridebookdetail.ride_id_id ).update_all("seats=seats- #{@seatbook}")                  
-      	flash[:success] = "Ride Booked Sucessfully!"
-        show
-        render :show
+      Ride.where(:id => @ridebookdetail.ride_id_id ).update_all("seats=seats- #{@seatbook}")
+      flash[:success] = "Ride Booked Sucessfully!"
+      show
+      render :show
   	else
   		render 'new'
   	end
@@ -33,7 +33,7 @@ class RideBookingDetailsController < ApplicationController
   def show
     @bookingHistory = RideBookingDetail.all(:conditions => {:booking_user_id_id  => current_user.id})
     #@bookingHistorydetails = RideBookingDetail.joins(:ride_id_id).where(booking_user_id_id: current_user.id)
-    #@bookingHistorydetails = 
+    #@bookingHistorydetails =
     p '*********************************'
     #p @bookingHistorydetails
     p '*********************************'

@@ -9,18 +9,28 @@ class RidesController < ApplicationController
   end
 
   def index_find_ride
-    p '======================================='
-    #p @currdate
     if params[:journey_date] 
       @currdate=params[:journey_date]
     end
-    # p '======================================='
-    # p params[:journey_date]
-    # p @currdate
-    # p '======================================'
+    id= "#{params[:source]}#{params[:destination]}#{params[:journey_date]}"
+    p '======================================='
+    p id
+    p '======================================'
+    find = Rails.cache.read id
+
+    if find
+      @matchRide=find
+    else
+      @matchRide = Ride.where(source: params[:source], destination: params[:destination], date_of_journey: params[:journey_date] ).where('seats > 0').order('seats desc')
+      Rails.cache.write id, @matchRide
+    end
+    # id = 23;
+    # my_data = array('name' => 'gon', 'occupation' => 'hunter');
+    # ttl = 60;
+    # mem->set($id, $my_data, $ttl);
     params[:source]=params[:source].to_s.downcase
     params[:destination]=params[:destination].to_s.downcase
-    @matchRide = Ride.where(source: params[:source], destination: params[:destination], date_of_journey: params[:journey_date] ).where('seats > 0').order('seats desc')
+    # @matchRide = Ride.where(source: params[:source], destination: params[:destination], date_of_journey: params[:journey_date] ).where('seats > 0').order('seats desc')
     
 
     p @matchRide

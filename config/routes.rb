@@ -3,6 +3,9 @@ BlaBlaCar::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :ride_booking_details ,only:[ :create, :show, :destroy]
   resources :rides , only:[:new, :create, :destroy, :show]
+  
+  resources :email_filter, only: [:create, :index]
+  delete "/email_filter", to: "email_filter#destroy", as: :delete_spam
 
   get '/ride_booking_details/new/:ride_id', to: 'ride_booking_details#new', as: :book_ride
   root to: 'bla_bla_car#home'

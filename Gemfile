@@ -14,6 +14,9 @@ gem 'bootstrap-sass', '3.1.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'test-unit'
 gem 'rake', '< 11.0'
+gem  'dalli'
+gem 'redis'
+gem 'redis-namespace'
 
 gem "activerecord-jdbcsqlite3-adapter", platforms: :jruby
 

@@ -9,6 +9,7 @@
           <li class="mr-1"><%= link_to "Find Ride",find_ride_path, class: "btn btn-large btn-primary "%></li>
           
           <li class="mr-1"><%= link_to "Offer a Ride",new_ride_path, class: "btn btn-large btn-primary mr-1"%></li>
+          <li><%= link_to 'Spams', email_filter_index_path %></li>
           <% if signed_in? %>
             <li><%= link_to "Profile", current_user %></li>
             <li><%= link_to "Settings", edit_user_path(current_user) %></li>

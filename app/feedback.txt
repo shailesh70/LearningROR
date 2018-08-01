@@ -1,0 +1,37 @@
+routes.rb
+ ride_booking_details/new/:ride_id - nested_routes
+ index_offer_ride - can it not be just index page
+
+ride.rb
+ attr_accessible - change to attr_protected
+ has_many - plural
+
+ride_booking_detail.rb
+ belongs_to - ids????
+ attr_accessible - change to attr_protected
+
+user.rb
+ has_many - plural
+ attr_accessible - change to attr_protected
+
+RideBookingDetailsController
+ def new
+   have readable variable names
+
+ def create
+   combine 2 saves
+
+ def show
+   where  is it called?
+   current_user.ride_booking_detail
+
+
+RidesController
+ user_id_id???
+
+ def show
+   userdetail -> ride.user
+
+ def index_find_ride
+   use scope for searching
+   better method name -> search?

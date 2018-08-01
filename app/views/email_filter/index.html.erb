@@ -1,0 +1,34 @@
+<div class="center page-header"><h1>Spam</h1></div>
+<div class="center row">
+
+    <div class="span center">
+        
+        <%= form_tag '/email_filter', method: :post do %>
+        <div class="form-group">
+            <label for='usr'>Domain:</label>
+            <%= text_field_tag :domain%>
+        </div>
+
+        <%= submit_tag 'Add', class: 'btn btn-primary btn-lg' %>
+    <% end %>
+
+        <table class="table center">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Domains</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @domain_list.each_with_index do |domain, index| %>
+                    <tr>
+                        <td><%= index+1 %></td>
+                        <td><%= domain %></td>
+                        <td><%= link_to "delete", { controller: 'email_filter', action: 'destroy', domain_name: domain }, method: :delete %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
